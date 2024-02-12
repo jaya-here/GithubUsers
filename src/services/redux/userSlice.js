@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getUser } from "../apiUsers";
 
-// Action
+// action to handle asynchrous data fetching from API
 export const getUserAction = createAsyncThunk("getUserAction", getUser);
 
 const userSlice = createSlice({
@@ -22,6 +22,7 @@ const userSlice = createSlice({
     builder.addCase(getUserAction.rejected, (state, action) => {
       console.log("Error", action.payload);
       state.isError = true;
+      state.isLoading=false;
     });
   },
 });

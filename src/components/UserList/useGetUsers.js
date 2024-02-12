@@ -4,13 +4,13 @@ import { getUsersAction } from '../../services/redux/usersSlice';
 
 export default function useGetUsers() {
 
-  const dispatch = useDispatch()
-  const state = useSelector((state)=>state.users)
+  const dispatch = useDispatch();
+  const state = useSelector((state)=>state.users);
 
   useEffect(()=>{
-    dispatch(getUsersAction())
+    dispatch(getUsersAction());
   },[])
 
-  return state
+  return state;
 
 }

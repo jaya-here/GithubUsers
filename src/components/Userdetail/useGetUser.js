@@ -5,15 +5,15 @@ import { useParams } from 'react-router-dom';
 
 export default function useGetUser() {
 
-  const dispatch = useDispatch()
-  const state = useSelector((state)=>state.user)
-  const {username} = useParams()
+  const dispatch = useDispatch();
+  const state = useSelector((state)=>state.user);
+  const {username} = useParams(); //Fetching the username from the URL
 
   useEffect(()=>{
-    dispatch(getUserAction(username))
+    dispatch(getUserAction(username));
   },[])
 
 
-  return state
+  return state;
 
 }
