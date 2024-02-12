@@ -5,7 +5,7 @@ export async function getUsers() {
   try {
     const response = await octokit.request('GET /users', {
         headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
+          'X-GitHub-Api-Version': '2022-11-28' //Specifying the Github REST API version
         }
       });
     return response.data;
@@ -20,7 +20,7 @@ export async function getUser(username) {
     const response = await octokit.request('GET /users/{username}', {
         username:username,
         headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
+          'X-GitHub-Api-Version': '2022-11-28' //Specifying the Github REST API version
         }
       });
     return response.data;

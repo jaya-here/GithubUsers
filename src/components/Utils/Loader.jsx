@@ -17,8 +17,7 @@ export default function Loader() {
             sx={{
                 width:100,
                 height:100
-            }}
-            animation="wave">
+            }}>
             </HourglassBottomIcon>
         </Zoom>
     </Box>

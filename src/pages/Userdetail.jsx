@@ -8,6 +8,8 @@ import Loader from "../components/Utils/Loader";
 import Error from "../components/Utils/Error";
 import { styled } from "@mui/material";
 
+
+//Extending Avatar functionality to adapt image size with respect to screen size
 const Avatar_wrapper = styled(Avatar)((theme)=>{
   return {
     border:'3px solid whitesmoke',
@@ -21,6 +23,7 @@ const Avatar_wrapper = styled(Avatar)((theme)=>{
   };
 })
 
+//Adjust padding and margin with respect to screen size
 const About_wrapper =styled(Box)((theme)=>{
   return {
     backgroundColor:'white',
@@ -51,6 +54,8 @@ export default function User() {
   minHeight:'100vh',
   background: 'radial-gradient(circle at 0.2% 1.8%, rgb(255, 90, 8) 0%, rgb(88, 0, 0) 100.2%);',
   }}>
+
+    {/* Header containing user profile picture and username */}
     <Box
     sx={{
     minWidth:'100%', 
@@ -70,7 +75,10 @@ export default function User() {
       <Typography variant="h4"
       style={{color:'whitesmoke',margin:'0', fontSize:'xx-large'}}>{user?.login}</Typography>
     </Box>
+
     <CardContent>
+
+      {/* Follower, Following, Repositories display section */}
       <Box
       sx={{
         py:1,
@@ -82,15 +90,15 @@ export default function User() {
       <Userstat value={user?.following} stat={"following"}></Userstat>
       <Userstat value={user?.public_repos} stat={"repositories"}></Userstat>
       </Box>
-      
-      <About_wrapper
-      >
+
+      {/* About section */}
+      <About_wrapper>
         <Typography gutterBottom variant="h5" component="div">
           About
         </Typography>
 
         {user?.name && <Typography variant="body1" color="text.primary" sx={{pb:1, fontWeight:600}}>
-        {user?.name}
+          {user?.name}
         </Typography>}
 
         {user?.company && <Typography variant="body2" color="text.primary" sx={{pb:1}}>
@@ -98,7 +106,7 @@ export default function User() {
         </Typography>}
 
         {user?.location && <Typography variant="body2" color="text.primary" sx={{pb:1}}>
-        Located at <Typography variantMapping={{body1:'span'}} sx={{fontWeight:600, display:'inline'}}>{user?.location}</Typography>
+          Located at <Typography variantMapping={{body1:'span'}} sx={{fontWeight:600, display:'inline'}}>{user?.location}</Typography>
         </Typography>}
       </About_wrapper>
 
